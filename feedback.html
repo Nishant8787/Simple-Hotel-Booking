@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - OYE Hotel Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header img {
+            height: 50px;
+            vertical-align: middle;
+        }
+        header h1 {
+            display: inline-block;
+            font-size: 36px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* Feedback Form */
+        .feedback-section {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-section h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .feedback-section label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .feedback-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .feedback-section button {
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-section button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Success message styling */
+        .success-message {
+            display: none;
+            color: green; /* Updated to green */
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="OJT21.jpeg" alt="OYE Logo">
+        <h1>Feedback - OYE Hotel Booking</h1>
+    </header>
+
+    <!-- Feedback Form Section -->
+    <div class="feedback-section">
+        <h2>We Value Your Feedback</h2>
+        <form id="feedback-form">
+            <label for="feedback-input">Leave your feedback:</label>
+            <textarea id="feedback-input" rows="6" placeholder="Enter your feedback here..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="success-message" id="success-message">
+            Your feedback has been successfully submitted. Thank you!
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents page from reloading
+
+            // Get the textarea input value
+            const feedback = document.getElementById('feedback-input').value;
+
+            if (feedback.trim() === "") {
+                alert("Please enter feedback before submitting!");
+                return;
+            }
+
+            // Hide the form and display success message
+            document.getElementById('feedback-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+
+            // Optionally, here you could send the feedback to a server using an AJAX call
+        });
+    </script>
+
+</body>
+</html>

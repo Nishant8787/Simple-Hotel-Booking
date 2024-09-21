@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OYE Hotel Booking</title>
+    <style>
+        /* General reset and body styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header with Logo and Links */
+        header {
+            background-color: #007bff;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        header img {
+            height: 50px;
+            vertical-align: middle;
+        }
+        header h1 {
+            display: inline-block;
+            font-size: 36px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        nav {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Background image for the front page */
+        .hero {
+            background-image: url('https://via.placeholder.com/1920x1080');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+            z-index: 1;
+        }
+
+        /* Hero text and search bar */
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-text h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input, .search-bar button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+        .search-bar input {
+            width: 300px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .search-bar button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+        footer marquee {
+            font-size: 18px;
+        }
+
+        /* Contact and Feedback Section */
+        .info-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .info-links a {
+            margin: 0 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .info-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo and Navigation Links -->
+    <header>
+        <img src="OJT.jpeg" alt="OYE Logo">
+        <h1>OYE Hotel Booking</h1>
+        <nav>
+            <a href="#contact">Contact</a>
+            <a href="feedback.html">Feedback</a> <!-- Link to Feedback Page -->
+        </nav>
+    </header>
+
+    <!-- Hero Section with Background Image -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Find Your Perfect Hotel</h2>
+            <p>Plan your stay at the best hotels around the world.</p>
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" id="city-input" placeholder="Enter your destination">
+                <button onclick="searchHotels()">Search Hotels</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Links (Contact, Feedback) -->
+    <div class="info-links">
+        <a href="#contact">Contact Us</a>
+        <a href="feedback.html">Feedback</a> <!-- Link to Feedback Page -->
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 50px; text-align: center;">
+        <h2>Contact Us</h2>
+        <p>Email: support@oyedeveloper.com</p>
+        <p>Phone: +91-69099544915</p>
+    </section>
+
+    <!-- Footer with Marquee -->
+    <footer>
+        <marquee>Thanks for choosing OYE, we hope you enjoy your day! Please let us know if anything changes need still its under development</marquee>
+    </footer>
+
+    <!-- JavaScript for search functionality -->
+    <script>
+        function searchHotels() {
+            const city = document.getElementById('city-input').value;
+            if (city.trim() === "") {
+                alert("Please enter a city!");
+                return;
+            }
+            // Redirect to the search results page
+            window.location.href = `hotels.html?city=${encodeURIComponent(city)}`;
+        }
+    </script>
+
+</body>
+</html>
